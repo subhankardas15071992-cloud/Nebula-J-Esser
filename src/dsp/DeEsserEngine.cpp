@@ -114,6 +114,7 @@ void DeEsserEngine::ChannelState::configure(const EngineParameters& p, double ne
 
 void DeEsserEngine::prepare(double newSampleRate, int maxBlockSize, int channelCount)
 {
+    juce::ignoreUnused(channelCount);
     sampleRate = std::clamp(newSampleRate, 1000.0, 384000.0);
     const auto preparedBlockSize = std::max(1, maxBlockSize);
     const auto maxDelaySamples = static_cast<int>(std::ceil(sampleRate * 0.020)) + preparedBlockSize + 4;
