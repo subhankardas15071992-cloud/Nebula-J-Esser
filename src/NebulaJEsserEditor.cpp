@@ -14,7 +14,7 @@ namespace
 } // namespace
 
 NebulaJEsserAudioProcessorEditor::NebulaJEsserAudioProcessorEditor(NebulaJEsserAudioProcessor& processor)
-    : AudioProcessorEditor(&processor),
+    : AudioProcessorEditor(processor),
       audioProcessor(processor),
       spectrum(processor, processor.state()),
       detectionMeter(processor, processor.state(), nebula::state::ids::tkeoSharp.data(), "DETECTION", false),

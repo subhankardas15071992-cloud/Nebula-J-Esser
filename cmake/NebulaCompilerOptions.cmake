@@ -3,11 +3,11 @@ function(nebula_target_warnings target_name)
         target_compile_options(${target_name} PRIVATE /W4 /WX /permissive- /EHsc)
     else()
         target_compile_options(${target_name} PRIVATE
-            -Wall
-            -Wextra
-            -Wpedantic
-            -Werror
-            -Woverloaded-virtual)
+            $<$<COMPILE_LANGUAGE:CXX>:-Wall>
+            $<$<COMPILE_LANGUAGE:CXX>:-Wextra>
+            $<$<COMPILE_LANGUAGE:CXX>:-Wpedantic>
+            $<$<COMPILE_LANGUAGE:CXX>:-Werror>
+            $<$<COMPILE_LANGUAGE:CXX>:-Woverloaded-virtual>)
     endif()
 endfunction()
 
