@@ -1,0 +1,10 @@
+juce_add_console_app(NebulaJEsserValidation
+    PRODUCT_NAME "Nebula J-Esser Validation")
+
+target_sources(NebulaJEsserValidation PRIVATE EngineTests.cpp)
+target_link_libraries(NebulaJEsserValidation PRIVATE NebulaJEsserCore)
+target_compile_features(NebulaJEsserValidation PRIVATE cxx_std_20)
+nebula_target_warnings(NebulaJEsserValidation)
+nebula_target_optimizations(NebulaJEsserValidation)
+
+add_test(NAME NebulaJEsserValidation COMMAND NebulaJEsserValidation)
