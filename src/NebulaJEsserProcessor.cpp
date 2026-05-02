@@ -483,17 +483,17 @@ void NebulaJEsserAudioProcessor::setStateInformation(const void* data, int sizeI
 
         midiMappingsFromTree(tree.getChildWithName("MIDI_MAPPINGS"));
 
-        auto parameterTree = tree.createCopy();
-        while (parameterTree.getChildWithName("PRESETS").isValid())
-            parameterTree.removeChild(parameterTree.getChildWithName("PRESETS"), nullptr);
-        while (parameterTree.getChildWithName("STATE_A").isValid())
-            parameterTree.removeChild(parameterTree.getChildWithName("STATE_A"), nullptr);
-        while (parameterTree.getChildWithName("STATE_B").isValid())
-            parameterTree.removeChild(parameterTree.getChildWithName("STATE_B"), nullptr);
-        while (parameterTree.getChildWithName("MIDI_MAPPINGS").isValid())
-            parameterTree.removeChild(parameterTree.getChildWithName("MIDI_MAPPINGS"), nullptr);
+        auto restoredParameterState = tree.createCopy();
+        while (restoredParameterState.getChildWithName("PRESETS").isValid())
+            restoredParameterState.removeChild(restoredParameterState.getChildWithName("PRESETS"), nullptr);
+        while (restoredParameterState.getChildWithName("STATE_A").isValid())
+            restoredParameterState.removeChild(restoredParameterState.getChildWithName("STATE_A"), nullptr);
+        while (restoredParameterState.getChildWithName("STATE_B").isValid())
+            restoredParameterState.removeChild(restoredParameterState.getChildWithName("STATE_B"), nullptr);
+        while (restoredParameterState.getChildWithName("MIDI_MAPPINGS").isValid())
+            restoredParameterState.removeChild(restoredParameterState.getChildWithName("MIDI_MAPPINGS"), nullptr);
 
-        parameters.replaceState(parameterTree);
+        parameters.replaceState(restoredParameterState);
     }
 }
 
