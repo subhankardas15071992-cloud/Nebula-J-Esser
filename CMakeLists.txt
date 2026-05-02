@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.24)
 project(NebulaJEsser
     VERSION 0.1.0
     DESCRIPTION "Nebula J-Esser 64-bit de-esser by Nebula Audio"
-    LANGUAGES CXX)
+    LANGUAGES C CXX)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(NebulaCompilerOptions)
